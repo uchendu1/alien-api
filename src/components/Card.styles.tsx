@@ -25,7 +25,7 @@ flex-direction: column;
 align-items: center;
 position: relative;
 width: 500px;
-height: 420px;
+height: auto;
 padding-bottom: 20px;
 background: lightpink;
 border-radius: 1rem;
@@ -36,7 +36,7 @@ img {
     border-radius: 1rem;
 border: 1px solid lightcoral;
 width: 350px;
-height: auto;
+height: 500px;
 object-fit: cover;
 box-sizing: border-box;
 }

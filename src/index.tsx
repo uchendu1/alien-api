@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//context provider
+import CharacterIdProvider from './Context';
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <CharacterIdProvider>
+
     <App />
+    </CharacterIdProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

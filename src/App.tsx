@@ -8,11 +8,18 @@ import Card from "./components/Card";
 
 // styles
 import { Wrapper } from "./App.styles";
+//context hook
+import { useCharacterId } from "./Context"; 
+
+
+
+
 
 const App: React.FC = () => {
   const [character, setCharacter] = useState<Character>({} as Character );
   const [isLoading, setIsLoading] = useState(false); 
-  const [characterId, setCharacterId] = useState(1);
+  // const [characterId, setCharacterId] = useState(1);
+const {characterId, setCharacterId} = useCharacterId();
 
   React.useEffect(() => {
     const fetchFromApi = async () => {
