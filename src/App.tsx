@@ -9,17 +9,15 @@ import Card from "./components/Card";
 // styles
 import { Wrapper } from "./App.styles";
 //context hook
-import { useCharacterId } from "./Context"; 
-
-
-
-
+import { useCharacterId } from "./Context";
 
 const App: React.FC = () => {
-  const [character, setCharacter] = useState<Character>({} as Character );
-  const [isLoading, setIsLoading] = useState(false); 
+  const [character, setCharacter] = useState<Character>({} as Character);
+  const [isLoading, setIsLoading] = useState(false);
   // const [characterId, setCharacterId] = useState(1);
-const {characterId, setCharacterId} = useCharacterId();
+  const { characterId, setCharacterId } = useCharacterId();
+
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     const fetchFromApi = async () => {
@@ -31,21 +29,28 @@ const {characterId, setCharacterId} = useCharacterId();
 
     fetchFromApi();
   }, [characterId]);
+
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    setCharacterId(Number(inputRef.current?.value));
+  };
+
   return (
     <Wrapper characterId={characterId}>
       {isLoading ? (
         <p>Loading....</p>
       ) : (
         <>
-          <Card name={character.name} imgUrl={character.img_url} gender={character.gender}/>
-          <button onClick={()=>setCharacterId(Math.floor(Math.random() * 10 ) + 1)}> 
-            Random character
-            
-            </button>
+          <Card
+            name={character.name}
+            imgUrl={character.img_url}
+            gender={character.gender}
+          />
+          <input type="text" ref={inputRef} />
+          <button onClick={handleButtonClick}>Get characters</button>
         </>
       )}
     </Wrapper>
   );
 };
- 
+
 export default App;

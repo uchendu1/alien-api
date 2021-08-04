@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
-    gender: string;
-    className?: string;
+  gender: string;
+  className?: string;
 };
 
-const Gender: React.FC<Props> = ({gender, className}) => {
-    return (
-        <p className={className}>{gender}</p>
-    );
-}
+const Gender: React.FC<Props> = ({ gender, className }) => {
+  return (
+    <p style={{ margin: "10px" }} className={className}>
+      {gender}
+    </p>
+  );
+};
 
 export default Gender;

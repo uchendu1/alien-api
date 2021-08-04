@@ -14,7 +14,6 @@ background: ${(props) => props.color};
 border-radius: 7px;
 padding: 4px;
 
-
 `;
 
 
