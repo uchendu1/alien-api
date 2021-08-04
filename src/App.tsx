@@ -47,7 +47,7 @@ const App: React.FC = () => {
             gender={character.gender}
           />
           <Item item={character} onClick={(item)=>console.log(item.origin)}/>
-          <input type="text" ref={inputRef} />
+          <input type="text"  placeholder='type a number' ref={inputRef} />
           <button onClick={handleButtonClick}>Get characters</button>
         </>
       )}
