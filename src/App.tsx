@@ -5,6 +5,7 @@ import { fetchCharacter, Character } from "./api";
 
 //components
 import Card from "./components/Card";
+import Item from './components/Items'
 
 // styles
 import { Wrapper } from "./App.styles";
@@ -45,6 +46,7 @@ const App: React.FC = () => {
             imgUrl={character.img_url}
             gender={character.gender}
           />
+          <Item item={character} onClick={(item)=>console.log(item.origin)}/>
           <input type="text" ref={inputRef} />
           <button onClick={handleButtonClick}>Get characters</button>
         </>
